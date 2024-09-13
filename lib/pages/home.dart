@@ -10,11 +10,13 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  
   int currentpage = 0;
-  List<Widget> pages = const [HomePage(), ChatPage()];
+  List<Widget> pages = [HomePage(), const ChatPage()];
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: IndexedStack(
         index: currentpage,
@@ -34,11 +36,14 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.white,
         showSelectedLabels: false,
         showUnselectedLabels: false,
+        selectedItemColor: Colors.blueAccent,
         onTap: (value) {
           setState(() {
             currentpage = value;
           });
+          
         },
+        currentIndex: currentpage,
         items: const [
           BottomNavigationBarItem(
               icon: Icon(
